@@ -23,13 +23,12 @@ const hasFirstName = person.hasOwnProperty("firstName");
 console.log("Has firstName:", hasFirstName);
 
 // Object.assign: Create a new object by merging multiple objects
-const additionInfo = {
-  job: "Engineer",
-  country: "USA",
+const additionalInfo = {
+  email: "john.doe@example.com",
+  occupation: "Software Engineer",
 };
-const extendedPerson = Object.assign({}, person, additionInfo);
-console.log("Extended Person:", extendedPerson);
-
+Object.assign(person, additionalInfo);
+console.log("Merged Person:", person);
 // Object.getOwnPropertyDescriptor: Get property attributes, like configurable, enumerable, and value
 const ageProperty = Object.getOwnPropertyDescriptor(person, "age");
 console.log("Age Property Descriptor:", ageProperty);
@@ -51,8 +50,3 @@ const newPrototype = { nationality: "American" };
 Object.setPrototypeOf(person, newPrototype);
 console.log("Updated Prototype:", person);
 
-// Object.keys with Object.getOwnPropertySymbols: Get all own enumerable property keys, including symbol keys
-const symbolKey = Symbol("uniqueKey");
-person[symbolKey] = "Symbol Value";
-const allKeys = Object.keys(person);
-console.log("All Keys (including Symbols):", allKeys);
